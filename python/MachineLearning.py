@@ -99,13 +99,17 @@ class SVM:
         fd, hog_image = hog(data, orientations=8, pixels_per_cell=(16, 16), cells_per_block=(1, 1), visualise=True)
         return self.svm.predict(fd), self.svm.decision_function(fd)
 
+def rate(img):
+    s = SVM()
+    prediction, decision = s.predict(img)
+
 
 def main():
-    # s = SVM()
-    # goodImgs, avImgs = s.loadImages(test=False)
-    # imageData, imageVals = s.getFeatures(goodImgs, avImgs)
-    # s.train(imageData, imageVals)
-    # s.save()
+    s = SVM()
+    goodImgs, avImgs = s.loadImages(test=False)
+    imageData, imageVals = s.getFeatures(goodImgs, avImgs)
+    s.train(imageData, imageVals)
+    s.save()
     s = SVM()
     me = io.imread("/Users/eknox/workspace/InterestRate/python/trainingImages/IMG_1369.jpg")
     prediction, decision = s.predict(me)
