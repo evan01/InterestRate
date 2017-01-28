@@ -110,7 +110,7 @@ def main():
     me = io.imread("/Users/eknox/workspace/InterestRate/python/trainingImages/IMG_1369.jpg")
     prediction, decision = s.predict(me)
 
-    print "We are "+ str(100*decision[0])+"% sure that Evan is : " + str(prediction[0])
+    print "We are "+ str(100*decision[0])+"% sure that Evan is :  " + str(prediction[0])
 
 
 if __name__ == '__main__':
