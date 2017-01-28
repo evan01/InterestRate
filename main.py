@@ -1,8 +1,9 @@
 import os
+import python.MachineLearning as ML
+import numpy as NP
 from flask import Flask, render_template, request, redirect, url_for
 from IPython import embed
 from werkzeug.utils import secure_filename
-import python.MachineLearning as ML
 
 UPLOAD_FOLDER = "/var/www/uploads"
 ALLOWED_EXTENSIONS = set(["jpg", "png", "jpeg", "gif"])
@@ -24,13 +25,13 @@ def upload_picture():
         return redirect(request.url)
 
     if file and allowed_file(file.filename):
-        return redirect(url_for('display_result', image=image))
+        decision = ML.rate(NP.array(file))
+        return redirect(url_for('display_result', decision=decision))
 
 @app.route("/result", methods=["GET"])
 def display_result():
     embed()
-    decision = ML.rate(image)
-    return render_template("result.html", decision=decision, image=image)
+    return render_template("result.html", decision=decision)
 
 def allowed_file(filename):
     return '.' in filename and \
