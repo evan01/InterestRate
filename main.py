@@ -1,5 +1,6 @@
 import os
 import python.MachineLearning as ML
+import python.ScreenShotTaker as SS
 import numpy as NP
 from skimage import io
 from flask import Flask, render_template, request, redirect, url_for
@@ -18,6 +19,8 @@ def hello():
 @app.route("/submit", methods=["POST"])
 def submit():
     url = request.form['url']
+    screen_shot = SS.takeScreenShot(url)
+    return "Success"
 
 def allowed_file(filename):
     return '.' in filename and \
