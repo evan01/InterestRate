@@ -1,7 +1,12 @@
 <!doctype html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
 <title>Interest Rate</title>
 <h1>Interest Rate</h1>
-<form action="/submit" method="POST">
-    <input type="text" name="url">
-    <input type="submit">
-</form>
+<div class="center">
+    <form action="/submit" method="POST">
+        <input type="text" name="url">
+        <input type="submit">
+    </form>
+</div>

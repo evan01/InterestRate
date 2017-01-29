@@ -19,7 +19,7 @@ def hello():
 @app.route("/submit", methods=["POST"])
 def submit():
     url = request.form['url']
-    screen_shot = SS.takeScreenShot(url)
+    screen_shot = SS.takeScreenShot("http://" + url)
     decision = ML.rate(io.imread("static/temp.png"))
     return render_template("result.html", decision=decision)
 
