@@ -20,11 +20,8 @@ def hello():
 def submit():
     url = request.form['url']
     screen_shot = SS.takeScreenShot(url)
-    return "Success"
-
-def allowed_file(filename):
-    return '.' in filename and \
-        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    decision = ML.rate(io.imread("static/temp.png"))
+    return render_template("result.html", decision=decision)
 
 if __name__ == "__main__":
     app.run()

@@ -9,7 +9,7 @@ def takeScreenShot(url):
     driver = webdriver.PhantomJS()
     driver.set_window_size(1024, 768)  # set the window size that you need
     driver.get(url)
-    driver.save_screenshot("temp.png")
+    driver.save_screenshot("static/temp.png")
 
 
 if __name__ == '__main__':
