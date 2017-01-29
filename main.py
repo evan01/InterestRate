@@ -25,6 +25,7 @@ def upload_picture():
         return redirect(request.url)
 
     if file and allowed_file(file.filename):
+        # file.save(os.path("./python/tempImages"))
         decision = ML.rate(NP.array(file))
         return redirect(url_for('display_result', decision=decision))
 
