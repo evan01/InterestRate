@@ -105,13 +105,13 @@ def rate(img):
 
 
 def main():
+    # s = SVM()
+    # goodImgs, avImgs = s.loadImages(test=False)
+    # imageData, imageVals = s.getFeatures(goodImgs, avImgs)
+    # s.train(imageData, imageVals)
+    # s.save()
     s = SVM()
-    goodImgs, avImgs = s.loadImages(test=False)
-    imageData, imageVals = s.getFeatures(goodImgs, avImgs)
-    s.train(imageData, imageVals)
-    s.save()
-    s = SVM()
-    me = io.imread("/Users/eknox/workspace/InterestRate/python/trainingImages/IMG_1369.jpg")
+    me = io.imread("/Users/eknox/workspace/InterestRate/python/trainingImages/GoodLooking/1.jpg")
     prediction, decision = s.predict(me)
 
     print "We are "+ str(100*decision[0])+"% sure that Evan is :  " + str(prediction[0])
